@@ -1,0 +1,17 @@
+<div>
+  <h2>ABM Personas</h2>
+
+  <form (ngSubmit)="selectedPersona.id ? updatePersona() : createPersona()">
+    <label>Nombre: <input [(ngModel)]="selectedPersona.nombre" name="nombre" required /></label>
+    <label>Apellido: <input [(ngModel)]="selectedPersona.apellido" name="apellido" required /></label>
+    <label>DNI: <input [(ngModel)]="selectedPersona.dni" name="dni" required /></label>
+    <button type="submit">{{ selectedPersona.id ? 'Actualizar' : 'Crear' }}</button>
+  </form>
+
+  <ul>
+    <li *ngFor="let persona of personas" (click)="selectPersona(persona)">
+      {{ persona.nombre }} {{ persona.apellido }} - DNI: {{ persona.dni }}
+      <button (click)="deletePersona(persona.id!)">Eliminar</button>
+    </li>
+  </ul>
+</div>
