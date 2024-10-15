@@ -1,0 +1,4 @@
+com/prueba/demo/model/Persona.class
+com/prueba/demo/repository/PersonaRepository.class
+com/prueba/demo/DemoApplication.class
+com/prueba/demo/controller/PersonaController.class
