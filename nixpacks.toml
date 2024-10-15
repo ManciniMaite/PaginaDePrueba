@@ -1,2 +1,6 @@
 [build]
-command = "java -jar demo/target/demo-0.0.1-SNAPSHOT.jar"
+command = "cd ./demo && java -jar demo/target/demo-0.0.1-SNAPSHOT.jar"
+
+[phases]
+install = "cd ../pruebaFront && npm install"
+build = "cd ../pruebaFront && npm run build"
