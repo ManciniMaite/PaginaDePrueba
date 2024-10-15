@@ -1,6 +1,15 @@
-[build]
-command = "cd ./demo && java -jar demo/target/demo-0.0.1-SNAPSHOT.jar"
+[phases.setup]
+nixPkgs = ['nodejs', 'npm']  # Asegúrate de incluir cualquier paquete necesario
 
-[phases]
-install = "cd ../pruebaFront && npm install"
-build = "cd ../pruebaFront && npm run build"
+[phases.install]
+cmds = [
+  'cd pruebaFront && npm install'  # Instala las dependencias de Angular
+]
+
+[phases.build]
+cmds = [
+  'cd pruebaFront && npm run build'  # Construye la aplicación Angular
+]
+
+[start]
+cmd = 'java -jar demo/target/demo-0.0.1-SNAPSHOT.jar'  # Inicia tu aplicación Java
