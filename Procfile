@@ -1,1 +1,6 @@
-web: java -jar demo/target/demo-0.0.1-SNAPSHOT.jar & cd ../pruebaFront && npm install && npm run build --prod && npm run serve
+backend: java -jar demo/target/demo-0.0.1-SNAPSHOT.jar
+frontend: cd pruebaFront && npm install && npm run build && npm run serve
+
+
+
+
