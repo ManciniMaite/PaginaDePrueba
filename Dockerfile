@@ -44,7 +44,7 @@ RUN cp /app/target/*.jar app.jar
 COPY ./pruebaFront /app/pruebaFront
 
 # Instala Node.js y npm
-RUN apt install nodejs 
+RUN sudo apt install -y nodejs 
 
 # Instala las dependencias de Angular
 WORKDIR /app/pruebaFront
