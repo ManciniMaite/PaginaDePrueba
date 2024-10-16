@@ -1,5 +1,5 @@
 # Usar una imagen de Maven con Java 17 para compilar el proyecto
-FROM eclipse-temurin:17-jdk-alpine AS build
+FROM ubuntu:20.04 AS build
 
 RUN apk add --no-cache bash procps curl tar openssh-client
 
