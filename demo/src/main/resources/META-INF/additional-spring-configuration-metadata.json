@@ -1,5 +1,27 @@
-{"properties": [{
-  "name": "jakarta.persistence.jdbc.url",
-  "type": "java.lang.String",
-  "description": "A description for 'jakarta.persistence.jdbc.url'"
-}]}
+{"properties": [
+  {
+    "name": "jakarta.persistence.jdbc.url",
+    "type": "java.lang.String",
+    "description": "A description for 'jakarta.persistence.jdbc.url'"
+  },
+  {
+    "name": "hibernate.generate_statistics",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.generate_statistics'"
+  },
+  {
+    "name": "hibernate.hbm2ddl.auto",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.hbm2ddl.auto'"
+  },
+  {
+    "name": "hibernate.show_sql",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.show_sql'"
+  },
+  {
+    "name": "hibernate.dialect",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.dialect'"
+  }
+]}
