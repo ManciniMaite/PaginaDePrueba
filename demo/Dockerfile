@@ -12,7 +12,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Usar una imagen de Java 17 para ejecutar el archivo .jar
-FROM openjdk:17-jre-slim
+FROM openjdk:17
 
 # Establecer el directorio de trabajo
 WORKDIR /app
