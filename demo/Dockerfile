@@ -38,7 +38,7 @@ RUN ls -la ./target
 RUN cp /app/target/*.jar app.jar
 
 # Exponer el puerto en el que la aplicación escucha
-EXPOSE 8080
+#EXPOSE 8080
 
 # Comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "app.jar"]
