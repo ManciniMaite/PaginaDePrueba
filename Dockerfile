@@ -1,8 +1,10 @@
 # Usar la imagen base de OpenJDK 17
 FROM openjdk:17-jdk-slim AS build
 
+
 # Copia el código fuente de la aplicación
-COPY ./demo /app/demo
+COPY ./demo/pom.xml /app/demo
+COPY ./demo/src /app/demo/src
 COPY ./pruebaFront /app/pruebaFront
 
 # Instala Node.js y npm
