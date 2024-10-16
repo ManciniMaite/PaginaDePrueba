@@ -33,9 +33,9 @@ COPY src ./src
 
 # Compilar el proyecto y crear el archivo .jar
 RUN mvn clean package -DskipTests
-RUN ls -la
+RUN ls -la ./target
 # Copiar el archivo .jar del contenedor de compilación
-COPY /app/target/*.jar app.jar
+COPY ./target/*.jar app.jar
 
 # Exponer el puerto en el que la aplicación escucha
 EXPOSE 8080
