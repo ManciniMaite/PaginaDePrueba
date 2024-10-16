@@ -21,11 +21,11 @@ RUN npm run build
 FROM openjdk:17-jdk-slim
 
 # Copia los archivos necesarios desde la etapa de construcción
-COPY --from=build /app/demo /app/demo
-COPY --from=build /app/pruebaFront/dist /app/pruebaFront/dist
+RUN cp  /app/demo*.jar app.jar 
+#RUN cp  /app/pruebaFront/dist /app/pruebaFront/dist
 
 # Configura el directorio de trabajo
-WORKDIR /app/demo
+#WORKDIR /app/demo
 
 # Expone el puerto en el que se ejecuta la aplicación
 #EXPOSE 8080
