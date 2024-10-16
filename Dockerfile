@@ -44,7 +44,11 @@ RUN cp /app/target/*.jar app.jar
 COPY ./pruebaFront /app/pruebaFront
 
 # Instala Node.js y npm
-RUN sudo apt install -y nodejs 
+RUN apt update && apt install -y curl \
+    && curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt install -y nodejs \
+    && apt clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Instala las dependencias de Angular
 WORKDIR /app/pruebaFront
