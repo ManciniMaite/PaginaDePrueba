@@ -4,9 +4,9 @@ FROM openjdk:17-jdk-slim AS build
 WORKDIR /app
 
 # Copia el código fuente de la aplicación
-COPY /demo/pom.xml ./demo
+COPY demo/pom.xml /demo
 RUN ls -la
-COPY /demo/src ./demo/src
+COPY /demo/src/*.* /demo/src
 RUN ls -la
 COPY /pruebaFront ./pruebaFront
 RUN ls -la
