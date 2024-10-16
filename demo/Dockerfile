@@ -1,5 +1,5 @@
 # Usar una imagen de Maven con Java 17 para compilar el proyecto
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:17-jdk-alpine AS build
 
 RUN apk add --no-cache bash procps curl tar openssh-client
 
@@ -35,7 +35,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 RUN ls -la ./target
 # Copiar el archivo .jar del contenedor de compilación
-COPY ./target/*.jar app.jar
+COPY --from=build ./target/*.jar app.jar
 
 # Exponer el puerto en el que la aplicación escucha
 EXPOSE 8080
