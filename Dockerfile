@@ -2,11 +2,14 @@
 FROM openjdk:17-jdk-slim AS build
 
 WORKDIR /app
-RUN ls -la
+
 # Copia el código fuente de la aplicación
-COPY ./demo/pom.xml ./demo
-COPY ./demo/src ./demo/src
-COPY ./pruebaFront ./pruebaFront
+COPY demo/pom.xml ./demo
+RUN ls -la
+COPY demo/src ./demo/src
+RUN ls -la
+COPY pruebaFront ./pruebaFront
+RUN ls -la
 
 # Instala Node.js y npm
 RUN apt-get update && apt-get install -y curl \
