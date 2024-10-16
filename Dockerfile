@@ -28,8 +28,8 @@ CMD ["mvn"]
 WORKDIR /app
 
 # Copiar el archivo pom.xml y las dependencias
-COPY pom.xml .
-COPY src ./src
+COPY ./demo/pom.xml .
+COPY ./demo/src ./src
 
 # Compilar el proyecto y crear el archivo .jar
 RUN mvn clean package -DskipTests
