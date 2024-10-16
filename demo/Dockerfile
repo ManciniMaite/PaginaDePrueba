@@ -12,7 +12,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Copiar el archivo .jar del contenedor de compilación
-COPY --from=build /app/target/*.jar app.jar
+COPY /app/target/*.jar app.jar
 
 # Exponer el puerto en el que la aplicación escucha
 EXPOSE 8080
