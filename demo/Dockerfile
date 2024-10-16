@@ -1,5 +1,5 @@
 # Usar una imagen de Maven con Java 17 para compilar el proyecto
-FROM maven:3.8.4-openjdk-17 AS build
+FROM openjdk:17 AS build
 
 # Establecer el directorio de trabajo
 WORKDIR /app
