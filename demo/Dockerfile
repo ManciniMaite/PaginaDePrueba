@@ -10,7 +10,7 @@ COPY src ./src
 
 # Compilar el proyecto y crear el archivo .jar
 RUN mvn clean package -DskipTests
-
+RUN ls -la
 # Copiar el archivo .jar del contenedor de compilación
 COPY /app/target/*.jar app.jar
 
