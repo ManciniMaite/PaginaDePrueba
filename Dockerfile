@@ -5,10 +5,10 @@ WORKDIR /app
 
 # Copia el código fuente de la aplicación
 COPY demo/pom.xml /demo
-RUN ls -la
+RUN ls -la /demo
 COPY /demo/src/*.* /demo/src
 RUN ls -la
-COPY /pruebaFront ./pruebaFront
+COPY /pruebaFront /pruebaFront
 RUN ls -la
 
 # Instala Node.js y npm
