@@ -28,7 +28,7 @@ COPY --from=build /app/pruebaFront/dist /app/pruebaFront/dist
 WORKDIR /app/demo
 
 # Expone el puerto en el que se ejecuta la aplicación
-EXPOSE 8080
+#EXPOSE 8080
 
 # Comando para iniciar la aplicación
 CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
