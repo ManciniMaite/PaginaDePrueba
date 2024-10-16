@@ -1,5 +1,5 @@
 # Usar una imagen de Maven con Java 17 para compilar el proyecto
-FROM alpine:3.18 AS build
+FROM amazoncorrecto:11-alpine-jdk AS build
 
 RUN apk add --no-cache bash procps curl tar openssh-client
 
