@@ -1,5 +1,5 @@
 # Usar una imagen de Maven con Java 17 para compilar el proyecto
-FROM ubuntu:20.04 AS build
+FROM alpine:3.18 AS build
 
 RUN apk add --no-cache bash procps curl tar openssh-client
 
@@ -42,6 +42,8 @@ RUN cp /app/target/*.jar app.jar
 
 # Copia el código fuente de la aplicación
 COPY ./pruebaFront /app/pruebaFront
+
+RUN apk add --no-cache bash procps curl tar openssh-client
 
 # Instala Node.js y npm
 RUN apt update && apt install -y curl \
