@@ -48,6 +48,8 @@ WORKDIR /app/pruebaFront
 RUN npm install
 RUN npm run build
 
+
+WORKDIR /app
 # Comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
