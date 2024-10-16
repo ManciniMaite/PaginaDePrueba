@@ -1,7 +1,8 @@
 # Usar una imagen de Maven con Java 17 para compilar el proyecto
 FROM eclipse-temurin:17-jdk-alpine AS build
 
-RUN apk add --no-cache bash procps curl tar openssh-client
+# Instalar dependencias necesarias en Alpine
+RUN apk add --no-cache bash procps curl tar openssh-client nodejs npm
 
 # common for all images
 LABEL org.opencontainers.image.title="Apache Maven"
@@ -37,29 +38,18 @@ RUN ls -la ./target
 # Copiar el archivo .jar del contenedor de compilación
 RUN cp /app/target/*.jar app.jar
 
-# Exponer el puerto en el que la aplicación escucha
-#EXPOSE 8080
-
-# Copia el código fuente de la aplicación
+# Copiar el código fuente de la aplicación Angular
 COPY ./pruebaFront /app/pruebaFront
 
-# Instala Node.js y npm
-RUN apk update && apk install -y curl \
-    && curl -sL https://deb.nodesource.com/setup_18.x | bash - \
-    && apk install -y nodejs \
-    && apk clean \
-    && rm -rf /var/lib/apt/lists/*
-
-# Instala las dependencias de Angular
+# Establecer el directorio de trabajo para el frontend
 WORKDIR /app/pruebaFront
+
+# Instalar las dependencias de Angular (Node.js y npm ya instalados)
 RUN npm install
 RUN npm run build
 
 # Comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
-
-
-# Copia los archivos necesarios desde la etapa de construcción
-#COPY --from=build /app/pruebaFront/dist /app/pruebaFront/dist
-
+# Exponer el puerto en el que la aplicación escucha (opcional)
+#EXPOSE 8080
