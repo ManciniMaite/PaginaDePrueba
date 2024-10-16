@@ -9,7 +9,6 @@ COPY pom.xml .
 COPY src ./src
 
 # Compilar el proyecto y crear el archivo .jar
-RUN mvn clean package -DskipTests
 RUN mvn -v
 
 # Copiar el archivo .jar del contenedor de compilación
