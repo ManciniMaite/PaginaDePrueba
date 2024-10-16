@@ -5,7 +5,8 @@ FROM openjdk:17 AS build
 WORKDIR /app
 
 # Copiar el archivo pom.xml y las dependencias
-COPY . .
+COPY pom.xml .
+COPY src ./src
 
 # Compilar el proyecto y crear el archivo .jar
 RUN mvn clean package -DskipTests
