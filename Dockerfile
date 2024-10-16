@@ -48,15 +48,18 @@ WORKDIR /app/pruebaFront
 RUN npm install
 RUN npm run build
 
-# Exponer el puerto 80 (Nginx)
+# Exponer el puerto 80 para Nginx (si decides usarlo más adelante)
 EXPOSE 80
 
-# Comando para ejecutar Java, Node.js, y Nginx
-ENTRYPOINT ["sh", "-c", "npm run build "]
-
+# Volver al directorio principal para ejecutar la aplicación Java
 WORKDIR /app
-# Comando para ejecutar la aplicación
-ENTRYPOINT ["java", "-jar", "app.jar"]
 
-# Exponer el puerto en el que la aplicación escucha (opcional)
-#EXPOSE 8080
+# Crear un script para ejecutar ambos comandos: npm run build y luego java
+COPY run.sh /app/run.sh
+RUN chmod +x /app/run.sh
+
+# Exponer el puerto 8080 para la aplicación Java
+EXPOSE 8080
+
+# Usar el script como comando de inicio
+ENTRYPOINT ["/app/run.sh"]
