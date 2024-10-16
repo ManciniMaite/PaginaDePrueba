@@ -1,5 +1,5 @@
 # Usar una imagen de Maven con Java 17 para compilar el proyecto
-FROM amazoncorrecto:11-alpine-jdk AS build
+FROM eclipse-temurin:17-jdk-alpine AS build
 
 RUN apk add --no-cache bash procps curl tar openssh-client
 
@@ -43,13 +43,11 @@ RUN cp /app/target/*.jar app.jar
 # Copia el código fuente de la aplicación
 COPY ./pruebaFront /app/pruebaFront
 
-RUN apk add --no-cache bash procps curl tar openssh-client
-
 # Instala Node.js y npm
-RUN apt update && apt install -y curl \
+RUN apk update && apk install -y curl \
     && curl -sL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt install -y nodejs \
-    && apt clean \
+    && apk install -y nodejs \
+    && apk clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Instala las dependencias de Angular
